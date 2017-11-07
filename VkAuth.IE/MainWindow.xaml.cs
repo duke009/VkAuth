@@ -32,7 +32,6 @@ namespace VkAuth.IE
         }
 
         public Uri RedirectUri { get; private set; }
-        public Action<Response> OnResponse { get; }
-        Action<Response> IVkAuth.OnResponse { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Action<Response> OnResponse { get; set; }
     }
 }

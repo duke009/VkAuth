@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Threading;
 using VkAuth.Enums;
 
 namespace VkAuth
@@ -12,9 +13,7 @@ namespace VkAuth
             switch (type)
             {
                 case VkAuthType.Awesomium:
-                    return CreateInstance(type);
                 case VkAuthType.WebForms:
-                    return CreateInstance(type);
                 case VkAuthType.IE:
                     return CreateInstance(type);
 
@@ -26,8 +25,12 @@ namespace VkAuth
 
         private static IVkAuth CreateInstance(VkAuthType uiType)
         {
-            var filename = $@"VkAuth.{uiType}.dll";
-            var dll = Assembly.LoadFile(filename);
+            var path = Path.Combine(AssemblyDirectory, $@"VkAuth.{uiType}.dll");
+            var dll = Assembly.LoadFile(path);
+
+            var t = new Thread(MyThreadStartMethod);
+            t.SetApartmentState(ApartmentState.STA);
+            t.Start();
 
             foreach (var type in dll.GetExportedTypes())
             {
@@ -37,7 +40,24 @@ namespace VkAuth
                 }
             }
 
-            throw new FileNotFoundException(filename);
+            throw new FileNotFoundException(path);
+        }
+
+        private static void MyThreadStartMethod()
+        {
+            throw new NotImplementedException();
+        }
+
+        // wtf lol https://stackoverflow.com/questions/52797/how-do-i-get-the-path-of-the-assembly-the-code-is-in
+        private static string AssemblyDirectory
+        {
+            get
+            {
+                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                UriBuilder uri = new UriBuilder(codeBase);
+                string path = Uri.UnescapeDataString(uri.Path);
+                return Path.GetDirectoryName(path);
+            }
         }
     }
 }
