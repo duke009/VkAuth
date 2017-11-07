@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkAuth.IE", "VkAuth.IE\VkAu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkAuth.Awesomium", "VkAuth.Awesomium\VkAuth.Awesomium.csproj", "{59A714FE-A9DD-4A63-9C6B-88569885DE1D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VkAuth.IKR", "VkAuth.IKR\VkAuth.IKR.csproj", "{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{59A714FE-A9DD-4A63-9C6B-88569885DE1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59A714FE-A9DD-4A63-9C6B-88569885DE1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59A714FE-A9DD-4A63-9C6B-88569885DE1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

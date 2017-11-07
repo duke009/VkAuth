@@ -24,7 +24,6 @@ namespace VkAuth.IE
             OnResponse?.Invoke(VkAuthHelper.GetResponse(uri));
         }
 
-        public Action<Response> OnResponse { get; private set; }
 
         public void Login(Request request)
         {
@@ -32,6 +31,8 @@ namespace VkAuth.IE
             browser.Navigate(VkAuthHelper.BuildNavigateLink(request));
         }
 
-        public Uri RedirectUri { get; set; }
+        public Uri RedirectUri { get; private set; }
+        public Action<Response> OnResponse { get; }
+        Action<Response> IVkAuth.OnResponse { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

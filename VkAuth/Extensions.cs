@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using VkAuth.Enums;
 
 namespace VkAuth
 {

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0EE3DE96-69D3-4B4A-BECB-9643D4BD24C7}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <RootNamespace>VkAuth</RootNamespace>
-    <AssemblyName>VkAuth</AssemblyName>
+    <ProjectGuid>{F03685EF-DC9D-46CD-8A8D-FA19B16C78CE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>VkAuth.IKR</RootNamespace>
+    <AssemblyName>VkAuth.IKR</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,13 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\DisplayPageType.cs" />
-    <Compile Include="Enums\Scope.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="IVkAuth.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VkAuthFactory.cs" />
-    <Compile Include="VkAuthHelper.cs" />
-    <Compile Include="Enums\VkAuthType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VkAuth\VkAuth.csproj">
+      <Project>{0ee3de96-69d3-4b4a-becb-9643d4bd24c7}</Project>
+      <Name>VkAuth</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
