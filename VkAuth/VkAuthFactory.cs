@@ -28,25 +28,26 @@ namespace VkAuth
             var path = Path.Combine(AssemblyDirectory, $@"VkAuth.{uiType}.dll");
             var dll = Assembly.LoadFile(path);
 
-            var t = new Thread(MyThreadStartMethod);
-            t.SetApartmentState(ApartmentState.STA);
-            t.Start();
-
+            IFactory factory = null;
             foreach (var type in dll.GetExportedTypes())
             {
-                if (typeof(IVkAuth).IsAssignableFrom(type))
+                if (typeof(IFactory).IsAssignableFrom(type))
                 {
-                    return (IVkAuth)Activator.CreateInstance(type);
+                    factory = (IFactory)Activator.CreateInstance(type);
                 }
             }
 
-            throw new FileNotFoundException(path);
+            if(factory == null)
+                throw new FileNotFoundException(path);
+
+            return factory.Create();
+
         }
 
-        private static void MyThreadStartMethod()
-        {
-            throw new NotImplementedException();
-        }
+        //private static void MyThreadStartMethod()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         // wtf lol https://stackoverflow.com/questions/52797/how-do-i-get-the-path-of-the-assembly-the-code-is-in
         private static string AssemblyDirectory

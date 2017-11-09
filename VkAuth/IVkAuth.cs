@@ -23,8 +23,8 @@ namespace VkAuth
 
     public class Request
     {
-        public string ClientID { get; set; }
-        public Uri RedirectUri { get; set; }
+        public int ClientID { get; set; }
+        public Uri RedirectUri { get; set; } = new Uri("https://oauth.vk.com/blank.html");
         public HashSet<Scope> Scope { get; set; }
         public DisplayPageType Display { get; set; }
         public string State { get; set; }

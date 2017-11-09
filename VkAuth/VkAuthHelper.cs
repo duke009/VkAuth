@@ -6,8 +6,19 @@ namespace VkAuth
     {
         public static Uri BuildNavigateLink(Request request)
         {
-            var revokeStr = request.Revoke ? "&revoke=1" : "";
-            return new Uri($"oauth.vk.com/authorize?client_id={request.ClientID}&display={request.Display}&redirect_uri={request.RedirectUri.AbsolutePath}&scope={request.Scope.BuildScope()}&response_type=token&v={request.ApiVersion}&state={request.State}{revokeStr}");
+            var uri = new Uri("http://oauth.vk.com/authorize")
+                .AddQuery("client_id", request.ClientID.ToString())
+                .AddQuery("display", request.Display.ToString().ToLower())
+                .AddQuery("redirect_uri", request.RedirectUri.AbsoluteUri)
+                .AddQuery("scope", request.Scope.BuildScope().ToString())
+                .AddQuery("response_type", "token")
+                .AddQuery("v", request.ApiVersion)
+                .AddQuery("state", request.State);
+
+            if (request.Revoke)
+                uri = uri.AddQuery("revoke", "1");
+
+            return uri;
         }
 
         public static Response GetResponse(Uri uri)

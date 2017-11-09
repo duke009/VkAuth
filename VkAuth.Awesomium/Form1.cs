@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VkAuth.Awesomium
@@ -37,4 +30,5 @@ namespace VkAuth.Awesomium
         public Uri RedirectUri { get; private set; }
         public Action<Response> OnResponse { get; set; }
     }
+
 }

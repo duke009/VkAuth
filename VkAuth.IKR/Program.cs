@@ -11,9 +11,22 @@ namespace VkAuth.IKR
     {
         static void Main(string[] args)
         {
-            var vkauth = VkAuthFactory.Create(VkAuthType.IE);
+            var vkauth = VkAuthFactory.Create(VkAuthType.Awesomium);
             vkauth.OnResponse += OnResponse;
-            vkauth.Login(new Request());
+            vkauth.Login(CreateRequest());
+
+            Console.ReadLine();
+        }
+
+        private static Request CreateRequest()
+        {
+            return new Request()
+            {
+                ClientID = 228999,
+                Display = DisplayPageType.Page,
+                State = "1234",
+                Scope = new HashSet<Scope>() { Scope.Friends}
+            };
         }
 
         private static void OnResponse(Response response)
