@@ -23,7 +23,7 @@ namespace VkAuth
 
         public static Response GetResponse(Uri uri)
         {
-            var queryString = uri.Query;
+            var queryString = uri.Fragment.Replace("#", "");
             var queryDictionary = System.Web.HttpUtility.ParseQueryString(queryString);
 
             return new Response

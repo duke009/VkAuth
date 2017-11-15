@@ -9,9 +9,9 @@ namespace VkAuth
 
     public static class Extensions
     {
-        public static long BuildScope(this HashSet<Scope> scope)
+        public static long BuildScope(this HashSet<Scope> scopeЫуе)
         {
-            return scope.Aggregate(0, (current, scope1) => current & (int) scope1);
+            return scopeЫуе.Aggregate(0, (current, scope) => current & (int) scope);
         }
 
         public static Uri AddQuery(this Uri uri, string name, string value)

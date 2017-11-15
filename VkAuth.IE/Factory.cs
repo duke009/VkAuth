@@ -1,4 +1,9 @@
-﻿namespace VkAuth.Awesomium
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace VkAuth.IE
 {
     public class Factory : IFactory
     {
@@ -11,8 +16,8 @@
             IVkAuth Api = null;
             var tread = new STAThread(() =>
             {
-                var program = new MainWindow();
-                Api = (IVkAuth) program;
+                var browser = new MainWindow();
+                Api = new VkAuthBrowser(browser);
             });
             return Api;
         }

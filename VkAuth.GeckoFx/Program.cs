@@ -1,26 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
+using Gecko;
 
-namespace VkAuth.Awesomium
+namespace VkAuth.GeckoFx
 {
-    public class Programs
+    internal class Program
     {
-        public Form MainForm { get; private set; }
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        public IVkAuth Main()
+        internal IBrowser Main()
         {
+            Xpcom.Initialize("Firefox");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            MainForm = new Form1();
-            return (IVkAuth)MainForm;
-        }
-        [STAThread]
-        public void Run()
-        {
-            Application.Run(MainForm);
+            var form = new Form1();
+            Application.Run(form);
+            return form;
         }
     }
 }

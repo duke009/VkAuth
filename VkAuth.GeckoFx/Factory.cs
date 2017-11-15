@@ -1,18 +1,16 @@
-﻿namespace VkAuth.Awesomium
+﻿namespace VkAuth.GeckoFx
 {
     public class Factory : IFactory
     {
-        //var s = tread.Invoke((System.Threading.ThreadStart) delegate()
-        //{
-
-        //});
         public IVkAuth Create()
         {
             IVkAuth Api = null;
             var tread = new STAThread(() =>
             {
-                var program = new MainWindow();
-                Api = (IVkAuth) program;
+                var program = new Program();
+                
+                var browser = program.Main();
+                Api = new VkAuthBrowser(browser);
             });
             return Api;
         }

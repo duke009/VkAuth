@@ -7,7 +7,7 @@ namespace VkAuth.IE
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window, IVkAuth
+    public partial class MainWindow : Window, IBrowser
     {
         public MainWindow()
         {
@@ -17,21 +17,19 @@ namespace VkAuth.IE
 
         private void BrowserOnNavigated(object sender, NavigationEventArgs navigationEventArgs)
         {
-            var uri = navigationEventArgs.Uri;
-            if (!uri.AbsolutePath.Contains(RedirectUri.AbsolutePath))
-                return;
-
-            OnResponse?.Invoke(VkAuthHelper.GetResponse(uri));
+            OnNavigated?.Invoke(navigationEventArgs.Uri);
         }
 
+        public Action<Uri> OnNavigated { get; set; }
 
-        public void Login(Request request)
+        public void Navigate(Uri uri)
         {
-            RedirectUri = request.RedirectUri;
-            browser.Navigate(VkAuthHelper.BuildNavigateLink(request));
+            browser.Navigate(uri);
         }
 
-        public Uri RedirectUri { get; private set; }
-        public Action<Response> OnResponse { get; set; }
+        public void BrowserOnNavigated(Action<Uri> callback)
+        {
+            OnNavigated += callback;
+        }
     }
 }
