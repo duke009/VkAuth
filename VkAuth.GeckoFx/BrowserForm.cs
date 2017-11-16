@@ -4,9 +4,9 @@ using Gecko;
 
 namespace VkAuth.GeckoFx
 {
-    public partial class Form1 : Form, IBrowser
+    public partial class BrowserForm : Form, IBrowser
     {
-        public Form1()
+        public BrowserForm()
         {
             InitializeComponent();
             browser.Navigated += BrowserOnNavigated;
@@ -24,7 +24,7 @@ namespace VkAuth.GeckoFx
 
         public void BrowserOnNavigated(Action<Uri> callback)
         {
-            OnNavigated = callback;
+            OnNavigated += callback;
         }
 
         public Action<Uri> OnNavigated { get; set; }

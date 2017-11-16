@@ -47,6 +47,10 @@
       <Project>{4ce97fbd-a4f6-4d88-8c5e-42e962f4bf57}</Project>
       <Name>VkAuth.GeckoFx</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VkAuth.IE\VkAuth.IE.csproj">
+      <Project>{87378368-9856-4cab-8f95-e8cc3489bb4c}</Project>
+      <Name>VkAuth.IE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VkAuth\VkAuth.csproj">
       <Project>{0ee3de96-69d3-4b4a-becb-9643d4bd24c7}</Project>
       <Name>VkAuth</Name>

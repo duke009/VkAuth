@@ -4,6 +4,7 @@
     {
         IE,
         Awesomium,
-        WebForms,
+        WindowsForm,
+        GekoFx,
     }
 }

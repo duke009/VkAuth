@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using VkAuth;
 //using VkAuth.Awesomium;
 using VkAuth.Enums;
-using VkAuth.GeckoFx;
-//using VkAuth.IE;
+//using VkAuth.GeckoFx;
+using VkAuth.IE;
 
 namespace DebugLib
 {

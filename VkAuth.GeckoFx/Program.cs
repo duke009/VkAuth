@@ -6,18 +6,23 @@ namespace VkAuth.GeckoFx
 {
     internal class Program
     {
+        public BrowserForm BrowserForm { get; private set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        internal IBrowser Main()
+        internal void Initialize()
         {
             Xpcom.Initialize("Firefox");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            var form = new Form1();
-            Application.Run(form);
-            return form;
+            BrowserForm = new BrowserForm();
+        }
+
+        internal void Run()
+        {
+            Application.Run(BrowserForm);
         }
     }
 }

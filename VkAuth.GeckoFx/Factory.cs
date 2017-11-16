@@ -9,8 +9,9 @@
             {
                 var program = new Program();
                 
-                var browser = program.Main();
-                Api = new VkAuthBrowser(browser);
+                program.Initialize();
+                Api = new VkAuthBrowser(program.BrowserForm);
+                program.Run();
             });
             return Api;
         }

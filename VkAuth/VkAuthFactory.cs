@@ -13,8 +13,10 @@ namespace VkAuth
             switch (type)
             {
                 case VkAuthType.Awesomium:
-                case VkAuthType.WebForms:
+                    throw new NotImplementedException();
+                case VkAuthType.WindowsForm:
                 case VkAuthType.IE:
+                case VkAuthType.GekoFx:
                     return CreateInstance(type);
 
                 default:

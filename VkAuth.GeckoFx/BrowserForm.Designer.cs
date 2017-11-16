@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace VkAuth.GeckoFx
 {
-    partial class Form1
+    partial class BrowserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -23,7 +23,7 @@ namespace VkAuth.GeckoFx
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Windows BrowserForm Designer generated code
 
         /// <summary>
         /// Required method for Designer support - do not modify
@@ -46,14 +46,14 @@ namespace VkAuth.GeckoFx
             this.browser.TabIndex = 0;
             this.browser.UseHttpActivityObserver = false;
             // 
-            // Form1
+            // BrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.browser);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "BrowserForm";
+            this.Text = "BrowserForm";
             this.ResumeLayout(false);
             this.PerformLayout();
 
