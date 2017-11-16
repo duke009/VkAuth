@@ -5,14 +5,15 @@ namespace VkAuth
 {
     public class STAThread : IDisposable
     {
-        public STAThread(Action a)
+        public STAThread(Func<bool> a)
         {
             using (mre = new ManualResetEvent(false))
             {
                 thread = new Thread(() =>
                 {
                     Application.Idle += Initialize;
-                    a();
+                    if (a())
+                        Application.Run();
                 }) {IsBackground = true};
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace VkAuth.IE
+﻿namespace VkAuth.IE
 {
     public class Factory : IFactory
     {
@@ -19,6 +13,7 @@ namespace VkAuth.IE
             {
                 var browser = new MainWindow();
                 Api = new VkAuthBrowser(browser);
+                return true;
             });
             return Api;
         }

@@ -12,6 +12,7 @@
                 program.Initialize();
                 Api = new VkAuthBrowser(program.BrowserForm);
                 program.Run();
+                return false;
             });
             return Api;
         }
