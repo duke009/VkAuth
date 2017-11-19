@@ -5,12 +5,12 @@
         public IVkAuth Create()
         {
             IVkAuth Api = null;
-            var tread = new STAThread(() =>
+            var tread = new STAThread((thread) =>
             {
                 var program = new Program();
                 
                 program.Initialize();
-                Api = new VkAuthBrowser(program.BrowserForm);
+                Api = new VkAuthBrowser(program.BrowserForm, thread);
                 program.Run();
                 return false;
             });

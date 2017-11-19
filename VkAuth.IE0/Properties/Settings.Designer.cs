@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VkAuth.IEw.Properties
+namespace VkAuth.IE.Properties
 {
 
 

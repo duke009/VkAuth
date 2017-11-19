@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VkAuth;
 //using VkAuth.Awesomium;
 using VkAuth.Enums;
@@ -33,7 +30,7 @@ namespace DebugLib
             return new Request()
             {
                
-                ClientID = 1546546346, ///4159456,
+                ClientID =4159456 , ///1546546346,
                 Display = DisplayPageType.Page,
                 State = "1234",
                 Scope = new HashSet<Scope>() { Scope.Friends }
