@@ -30,6 +30,7 @@ namespace VkAuth
                 return;
 
             Task.Factory.StartNew(() => OnResponse?.Invoke(VkAuthHelper.GetResponse(uri)));
+            Thread.Dispose();
         }
 
         public Action<Response> OnResponse { get; set; }

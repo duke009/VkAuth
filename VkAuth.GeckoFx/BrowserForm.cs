@@ -15,7 +15,6 @@ namespace VkAuth.GeckoFx
         private void BrowserOnNavigated(object sender, GeckoNavigatedEventArgs geckoNavigatedEventArgs)
         {
             OnNavigated?.Invoke(geckoNavigatedEventArgs.Uri);
-            Close();
         }
 
         public void Navigate(Uri uri)

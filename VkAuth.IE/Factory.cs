@@ -5,17 +5,16 @@ namespace VkAuth.IE
     {
         public IVkAuth Create()
         {
-            IVkAuth Api = null;
-            var tread = new STAThread((thread) =>
+            IBrowser browser = null;
+            var tread = new STAThread(() =>
             {
                 var program = new Program();
-                
                 program.Initialize();
-                Api = new VkAuthBrowser(program.BrowserForm, thread);
+                browser = program.BrowserForm;
                 program.Run();
                 return false;
             });
-            return Api;
+            return new VkAuthBrowser(browser, tread);
         }
     }
 }

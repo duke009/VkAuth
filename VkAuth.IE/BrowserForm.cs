@@ -14,7 +14,6 @@ namespace VkAuth.IE
         private void BrowserOnNavigated(object sender, WebBrowserNavigatedEventArgs webBrowserNavigatedEventArgs)
         {
             OnNavigated?.Invoke(webBrowserNavigatedEventArgs.Url);
-            Close();
         }
 
         public void Navigate(Uri uri)
