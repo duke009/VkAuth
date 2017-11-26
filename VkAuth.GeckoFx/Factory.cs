@@ -8,7 +8,6 @@
             var tread = new STAThread((thread) =>
             {
                 var program = new Program();
-                
                 program.Initialize();
                 Api = new VkAuthBrowser(program.BrowserForm, thread);
                 program.Run();

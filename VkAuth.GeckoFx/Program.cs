@@ -20,6 +20,7 @@ namespace VkAuth.GeckoFx
             BrowserForm = new BrowserForm();
         }
 
+        [STAThread]
         internal void Run()
         {
             Application.Run(BrowserForm);

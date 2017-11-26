@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace VkAuth
 {
@@ -20,17 +21,15 @@ namespace VkAuth
         public void Login(Request request)
         {
             RedirectUri = request.RedirectUri;
-
             Thread.BeginInvoke((Action)(() => { Browser.Navigate(VkAuthHelper.BuildNavigateLink(request)); }));
-            //Browser.Navigate(VkAuthHelper.BuildNavigateLink(request));
         }
 
-        public void BrowserOnNavigated(Uri uri)
+        private void BrowserOnNavigated(Uri uri)
         {
             if (!uri.AbsolutePath.Contains(RedirectUri.AbsolutePath))
                 return;
 
-            OnResponse?.Invoke(VkAuthHelper.GetResponse(uri));
+            Task.Factory.StartNew(() => OnResponse?.Invoke(VkAuthHelper.GetResponse(uri)));
         }
 
         public Action<Response> OnResponse { get; set; }

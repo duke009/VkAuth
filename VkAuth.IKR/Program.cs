@@ -25,7 +25,7 @@ namespace VkAuth.IKR
                 ClientID = 1, ///4159456,
                 Display = DisplayPageType.Page,
                 State = "1234",
-                Scope = new HashSet<Scope>() { Scope.Friends}
+                Scope = new HashSet<Scope>() { Scope.Friends }
             };
         }
 

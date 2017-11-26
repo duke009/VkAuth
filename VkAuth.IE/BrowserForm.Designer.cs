@@ -39,14 +39,14 @@
             this.browser.Location = new System.Drawing.Point(12, 12);
             this.browser.MinimumSize = new System.Drawing.Size(20, 20);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(260, 237);
+            this.browser.Size = new System.Drawing.Size(783, 390);
             this.browser.TabIndex = 0;
             // 
             // BrowserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(807, 414);
             this.Controls.Add(this.browser);
             this.Name = "BrowserForm";
             this.Text = "BrowserForm";

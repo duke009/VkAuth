@@ -42,7 +42,7 @@ namespace VkAuth
         {
             if (ctx != null)
             {
-                ctx.Send((_) => Application.ExitThread(), null);
+                ctx.Send(_ => Application.ExitThread(), null);
                 ctx = null;
             }
         }
