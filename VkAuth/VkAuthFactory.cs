@@ -36,6 +36,7 @@ namespace VkAuth
                 if (typeof(IFactory).IsAssignableFrom(type))
                 {
                     factory = (IFactory)Activator.CreateInstance(type);
+                    break;
                 }
             }
 
@@ -45,11 +46,6 @@ namespace VkAuth
             return factory.Create();
 
         }
-
-        //private static void MyThreadStartMethod()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         // wtf lol https://stackoverflow.com/questions/52797/how-do-i-get-the-path-of-the-assembly-the-code-is-in
         private static string AssemblyDirectory

@@ -31,7 +31,7 @@ namespace VkAuth.GeckoFx
         /// </summary>
         private void InitializeComponent()
         {
-            this.browser = new Gecko.GeckoWebBrowser() { Dock = DockStyle.Fill };
+            this.browser = new Gecko.GeckoWebBrowser();
             this.SuspendLayout();
             // 
             // browser
@@ -42,7 +42,7 @@ namespace VkAuth.GeckoFx
             this.browser.FrameEventsPropagateToMainWindow = false;
             this.browser.Location = new System.Drawing.Point(12, 12);
             this.browser.Name = "browser";
-            this.browser.Size = new System.Drawing.Size(260, 237);
+            this.browser.Size = new System.Drawing.Size(519, 391);
             this.browser.TabIndex = 0;
             this.browser.UseHttpActivityObserver = false;
             // 
@@ -50,12 +50,11 @@ namespace VkAuth.GeckoFx
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(543, 415);
             this.Controls.Add(this.browser);
             this.Name = "BrowserForm";
             this.Text = "BrowserForm";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

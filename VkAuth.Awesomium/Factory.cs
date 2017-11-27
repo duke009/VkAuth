@@ -2,10 +2,6 @@
 {
     public class Factory : IFactory
     {
-        //var s = tread.Invoke((System.Threading.ThreadStart) delegate()
-        //{
-
-        //});
         public IVkAuth Create()
         {
             IVkAuth Api = null;
