@@ -51,6 +51,10 @@
       <Project>{eb0461b8-97a8-4bd6-a076-742e99335e0a}</Project>
       <Name>VkAuth.IE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VkAuth.WinForm\VkAuth.WinForm.csproj">
+      <Project>{ed3e5669-7dde-4c1c-8b36-f35153b226fe}</Project>
+      <Name>VkAuth.WinForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\VkAuth\VkAuth.csproj">
       <Project>{0ee3de96-69d3-4b4a-becb-9643d4bd24c7}</Project>
       <Name>VkAuth</Name>

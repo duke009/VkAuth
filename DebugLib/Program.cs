@@ -4,7 +4,8 @@ using VkAuth;
 //using VkAuth.Awesomium;
 using VkAuth.Enums;
 //using VkAuth.GeckoFx;
-using VkAuth.IE;
+//using VkAuth.IE;
+using VkAuth.WinForm;
 
 namespace DebugLib
 {
