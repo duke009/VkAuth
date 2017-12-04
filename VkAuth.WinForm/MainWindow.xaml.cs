@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 namespace VkAuth.WinForm
 {
@@ -33,8 +34,15 @@ namespace VkAuth.WinForm
             if (string.IsNullOrEmpty(loginTb.Text) || string.IsNullOrEmpty(passwordTb.Password))
                 return;
 
-            var responseUri = Browser.Authorize(loginTb.Text, passwordTb.Password, uri);
-            OnNavigated(responseUri);
+            try
+            {
+                var responseUri = Browser.Authorize(loginTb.Text, passwordTb.Password, uri);
+                OnNavigated(responseUri);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message);
+            }
         }
     }
 }
