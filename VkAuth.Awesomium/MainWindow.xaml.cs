@@ -7,33 +7,31 @@ namespace VkAuth.Awesomium
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window //, IVkAuth
+    public partial class MainWindow : Window, IBrowser
     {
         public MainWindow()
         {
             InitializeComponent();
 
-            //browser.WebSession = WebCore.CreateWebSession(@"WebSession\", new WebPreferences { AcceptLanguage = "ru-ru,ru" });
-            //browser.AddressChanged += webBrowser_AddressChanged;
+            browser.WebSession = WebCore.CreateWebSession(@"WebSession\", new WebPreferences { AcceptLanguage = "ru-ru,ru" });
+            browser.AddressChanged += webBrowser_AddressChanged;
         }
 
-        //private void webBrowser_AddressChanged(object sender, UrlEventArgs e)
-        //{
-        //    var uri = e.Url;
-        //    if (!uri.AbsolutePath.Contains(RedirectUri.AbsolutePath))
-        //        return;
+        private void webBrowser_AddressChanged(object sender, UrlEventArgs e)
+        {
+            OnNavigated?.Invoke(e.Url);
+        }
 
-        //    OnResponse?.Invoke(VkAuthHelper.GetResponse(uri));
-        //}
+        public void Navigate(Uri uri)
+        {
+            browser.Source = uri;
+        }
 
+        public void BrowserOnNavigated(Action<Uri> callback)
+        {
+            OnNavigated += callback;
+        }
 
-        //public void Login(Request request)
-        //{
-        //    RedirectUri = request.RedirectUri;
-        //    browser.Source = VkAuthHelper.BuildNavigateLink(request);
-        //}
-
-        //public Uri RedirectUri { get; private set; }
-        //public Action<Response> OnResponse { get; set; }
+        public Action<Uri> OnNavigated { get; set; }
     }
 }

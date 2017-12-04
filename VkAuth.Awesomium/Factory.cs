@@ -4,14 +4,15 @@
     {
         public IVkAuth Create()
         {
-            IVkAuth Api = null;
+            IBrowser browser = null;
             var tread = new STAThread(() =>
             {
-                var program = new MainWindow();
-                Api = (IVkAuth) program;
-                return false;
+                browser = new MainWindow();
+                ((MainWindow)browser).Show();
+                return true;
             });
-            return Api;
+
+            return new VkAuthBrowser(browser, tread);
         }
     }
 }

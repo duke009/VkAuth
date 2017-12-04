@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 
 namespace VkAuth
 {
@@ -21,10 +22,10 @@ namespace VkAuth
             return uri;
         }
 
+
         public static Response GetResponse(Uri uri)
         {
-            var queryString = uri.Fragment.Replace("#", "");
-            var queryDictionary = System.Web.HttpUtility.ParseQueryString(queryString);
+            var queryDictionary = ParseUri(uri);
 
             return new Response
             {
@@ -36,6 +37,12 @@ namespace VkAuth
                 Error = queryDictionary["error"],
                 ErrorDescription = queryDictionary["error_description"],
             };
+        }
+
+        public static NameValueCollection ParseUri(Uri uri)
+        {
+            var queryString = uri.Fragment.Replace("#", "");
+            return System.Web.HttpUtility.ParseQueryString(queryString);
         }
 
         private static int? ParseInt(string str)

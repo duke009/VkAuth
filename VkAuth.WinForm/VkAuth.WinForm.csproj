@@ -61,7 +61,7 @@
   <ItemGroup>
     <Compile Include="Cookies.cs" />
     <Compile Include="Factory.cs" />
-    <Compile Include="VkAuthorisation.cs" />
+    <Compile Include="VkUriParseResult.cs" />
     <Compile Include="WebCall.cs" />
     <Compile Include="WebCallResult.cs" />
     <Compile Include="WebForm.cs" />

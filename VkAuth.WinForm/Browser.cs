@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 
 namespace VkAuth.WinForm
@@ -152,11 +151,11 @@ namespace VkAuth.WinForm
         /// <param name="result">Результат</param>
         /// <param name="webProxy">Настройки прокси</param>
         /// <returns></returns>
-        /// <exception cref="CaptchaNeededException"></exception>
+        /// <exception cref="Exception"></exception>
         private Uri EndAuthorize(WebCallResult result, IWebProxy webProxy = null)
         {
             var tokenUri = GetTokenUri(result);
-            var authorization = VkAuthorization.From(tokenUri.ToString());
+            var authorization = VkUriParseResult.Create(tokenUri);
 
             if (!authorization.IsAuthorizationRequired && !authorization.IsCaptchaNeeded)
             {
