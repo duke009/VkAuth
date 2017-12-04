@@ -11,7 +11,7 @@ namespace VkAuth
 
         private IBrowser Browser { get; }
 
-        public VkAuthBrowser(IBrowser browser, STAThread thread = null)
+        public VkAuthBrowser(IBrowser browser, STAThread thread)
         {
             Thread = thread;
             Browser = browser;

@@ -30,6 +30,9 @@ namespace VkAuth.WinForm
         {
             if (uri == null)
                 return;
+            if (string.IsNullOrEmpty(loginTb.Text) || string.IsNullOrEmpty(passwordTb.Password))
+                return;
+
             var responseUri = Browser.Authorize(loginTb.Text, passwordTb.Password, uri);
             OnNavigated(responseUri);
         }
